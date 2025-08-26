@@ -1,0 +1,80 @@
+{
+    "project_name": "Profit Calculator Web App",
+    "stack": {
+      "frontend": {
+        "framework": "Next.js (React, JavaScript only)",
+        "styling": "TailwindCSS",
+        "charts": "Recharts"
+      },
+      "backend": {
+        "runtime": "Node.js",
+        "framework": "Express.js",
+        "auth": "Clerk",
+        "database": "MongoDB Atlas with Mongoose"
+      },
+      "hosting": {
+        "frontend": "Vercel (free tier)",
+        "backend": "Render (free tier if separate)",
+        "database": "MongoDB Atlas free tier"
+      }
+    },
+    "features": {
+      "auth": [
+        "Clerk authentication (signup, login, logout)",
+        "JWT/session support for API calls"
+      ],
+      "ingredients": [
+        "CRUD for ingredients",
+        "Fields: name, unit type, unit cost, supplier (optional)"
+      ],
+      "batch": [
+        "Define units produced",
+        "Set selling price per unit OR total gross income",
+        "Select ingredients with quantity used"
+      ],
+      "calculations": [
+        "Total cost per batch",
+        "Gross income",
+        "Net profit",
+        "Profit margin percentage",
+        "Ingredient cost contribution percentage"
+      ],
+      "dashboard": [
+        "Profit trends chart",
+        "Cost breakdown pie chart",
+        "Profit margin bar chart",
+        "Summary KPI cards"
+      ],
+      "feedback": [
+        "Highlight top 3 costliest ingredients",
+        "Suggest reducing high-cost ingredients",
+        "Flag low-margin batches (<15%)"
+      ]
+    },
+    "rules": {
+      "forbidden": [
+        "Do not implement recipe builder",
+        "Do not implement inventory tracking",
+        "Do not integrate payments",
+        "Do not use AI/ML for feedback",
+        "Do not suggest paid tools or services",
+        "Do not use TypeScript"
+      ],
+      "coding": [
+        "Use JavaScript (ES6+ only)",
+        "Follow REST API conventions",
+        "Use Mongoose schemas for Users, Ingredients, Batches",
+        "Keep secrets in .env",
+        "Ensure responsive UI with Tailwind",
+        "Only use Recharts for charts"
+      ]
+    },
+    "future_extensions": [
+      "Stripe payment integration",
+      "AI cost optimization",
+      "Multi-currency support",
+      "Report export (PDF/Excel)",
+      "Team/collaboration features"
+    ]
+  }
+  
