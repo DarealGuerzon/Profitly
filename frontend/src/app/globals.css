@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Design tokens (shadcn-inspired) */
+:root {
+  --bg: 248 245 255; /* slate-50-ish */
+  --card: 255 255 255;
+  --border: 226 232 240; /* slate-200 */
+  --text: 15 23 42; /* slate-900 */
+  --muted: 100 116 139; /* slate-500 */
+  --primary: 79 70 229; /* indigo-600 */
+  --success: 34 197 94; /* emerald-500 */
+  --warning: 245 158 11; /* amber-500 */
+  --danger: 244 63 94; /* rose-500 */
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--text));
+  background-color: rgb(var(--bg));
+}
+
+/* Utility helpers */
+.container-balanced {
+  max-width: 1200px; /* ~screen-xl */
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.card {
+  background: rgb(var(--card));
+  border: 1px solid rgb(var(--border));
+  border-radius: 0.75rem; /* rounded-xl-ish */
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+}
