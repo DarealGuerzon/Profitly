@@ -1,8 +1,8 @@
 const express = require('express');
-const { createIngredient, getIngredient } = require ('../controllers/ingredientController');
+const { createIngredient, getIngredients } = require('../controllers/ingredientController');
 const router = express.Router();
 
 router.post('/', createIngredient);
-router.get('/',getIngredient);
+router.get('/', getIngredients);
 
 module.exports = router;
