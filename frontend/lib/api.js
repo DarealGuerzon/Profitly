@@ -40,3 +40,43 @@ export const ingredientAPI = {
         }
     }
 };
+export const batchAPI = {
+    async createBatch(batchData) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/batches`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(batchData),
+            });
+
+            const result = await response.json();
+            
+            if (!response.ok) {
+                throw new Error(result.message || 'Failed to create batch');
+            }
+
+            return result;
+        } catch (error) {
+            console.error('API Error:', error);
+            throw error;
+        }
+    },
+
+    async getBatches(userId) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/batches?userId=${userId}`);
+            const result = await response.json();
+            
+            if (!response.ok) {
+                throw new Error(result.message || 'Failed to fetch batches');
+            }
+
+            return result;
+        } catch (error) {
+            console.error('API Error:', error);
+            throw error;
+        }
+    }
+};

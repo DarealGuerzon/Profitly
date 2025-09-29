@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { ingredientAPI } from '../lib/api';
+import { batchAPI } from '../lib/api';
 
 
-export default function AddIngredientForm({ onIngredientAdded, onClose }) {
+export default function AddBatchForm({ onBatchAdded, onClose }) {
     const [formData, setFormData] = useState({
         name: '',
-        unitType: '',
+        unitsProduced: '',
         unitCost: '',
         supplier: ''
     });
@@ -21,14 +21,14 @@ export default function AddIngredientForm({ onIngredientAdded, onClose }) {
         setError('');
 
         try{
-            const result = await ingredientAPI.createIngredient({
+            const result = await batchAPI.createBatch({
                 ...formData,
                 unitCost: parseFloat(formData.unitCost),
                 userId: 'test-user'
             });
 
             setFormData({name: '', unitType: 'g', unitCost: '', supplier: ''});
-            onIngredientAdded(result.data);
+            onBatchAdded(result.data);
             onClose();
         }catch(error){
             setError(error.message);
@@ -42,7 +42,7 @@ export default function AddIngredientForm({ onIngredientAdded, onClose }) {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/30 backdrop-blur-sm">
             <div className="bg-white rounded-lg p-6 w-full max-w-md">
-                <h2 className="text-xl font-semibold mb-4">Add New Ingredient</h2>
+                <h2 className="text-xl font-semibold mb-4">Add New Batch</h2>
                 
                 {error && (
                     <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
@@ -126,7 +126,7 @@ export default function AddIngredientForm({ onIngredientAdded, onClose }) {
                             disabled={loading}
                             className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
                         >
-                            {loading ? 'Adding...' : 'Add Ingredient'}
+                            {loading ? 'Adding...' : 'Add Batch'}
                         </button>
                     </div>
                 </form>
